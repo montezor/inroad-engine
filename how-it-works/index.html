@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — Inroad Engine by Outspire</title>
+<meta name="description" content="A detailed breakdown of how the Inroad Engine analyzes your LinkedIn connections, scores prospects, and surfaces warm introduction paths hiding in your existing network.">
+<link rel="icon" href="https://outspire-site.pages.dev/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://network-revenue-system.pages.dev/how-it-works/">
+<style>
+:root{--bg:#fafafa;--bg-dark:#0a0e1a;--blue:#3b82f6;--blue-dark:#2563eb;--blue-light:#eff6ff;--blue-glow:rgba(59,130,246,0.15);--purple:#8b5cf6;--green:#16a34a;--orange:#f97316;--navy:#0f172a;--text:#0f172a;--text-secondary:#475569;--text-muted:#94a3b8;--border:#e2e8f0;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--max-w:1200px;--radius:16px;--radius-sm:10px;--radius-xs:8px;--transition:.3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:color var(--transition)}
+img{max-width:100%;display:block}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1rem;color:#fff}
+.nav-logo img{height:28px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:#94a3b8;font-size:13px;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:var(--blue);color:#fff!important;padding:9px 20px;border-radius:var(--radius-xs);font-weight:600;font-size:13px;transition:all var(--transition)}
+.nav-cta:hover{background:var(--blue-dark)}
+.hamburger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#fff;padding:8px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 24px;z-index:999}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 0;font-weight:500;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px}
+.container{max-width:var(--max-w);margin:0 auto;position:relative}
+.section-label{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px}
+.section-desc{font-size:1.05rem;color:var(--text-secondary);max-width:600px;line-height:1.7}
+.btn{padding:14px 32px;border-radius:var(--radius-xs);font-weight:600;font-size:15px;transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--blue-glow);color:#fff}
+.btn-outline{background:#fff;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+section{padding:96px 24px}
+.hero{padding:140px 24px 80px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--blue-light) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);border:1px solid rgba(59,130,246,0.2);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--blue);margin-bottom:20px}
+.hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-0.04em;margin-bottom:20px}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.15rem;color:var(--text-secondary);max-width:640px;margin:0 auto 36px;line-height:1.7}
+
+/* PHASE BLOCKS */
+.phase{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:80px 0;border-bottom:1px solid var(--border)}
+.phase:last-of-type{border-bottom:none}
+.phase.reverse{direction:rtl}
+.phase.reverse > *{direction:ltr}
+.phase-num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:1rem;margin-bottom:16px}
+.phase-text h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:12px}
+.phase-text p{font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+.phase-detail{list-style:none;display:flex;flex-direction:column;gap:10px}
+.phase-detail li{display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text-secondary);line-height:1.5}
+.phase-detail li span{color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px}
+.phase-visual{border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.08);border:1px solid var(--border);background:var(--bg-dark)}
+
+/* SAFETY BOX */
+.safety-section{background:var(--navy);color:#fff;border-radius:var(--radius);max-width:var(--max-w);margin:0 auto;padding:64px 48px}
+.safety-section .section-label{color:var(--blue)}
+.safety-section .section-title{color:#fff}
+.safety-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.safety-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:24px}
+.safety-card h4{color:#fff;font-size:0.9rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.safety-card p{font-size:0.82rem;color:#94a3b8;line-height:1.6}
+
+/* CTA */
+.cta-section{text-align:center;background:#fff;border-top:1px solid var(--border)}
+
+/* FOOTER */
+footer{background:var(--navy);color:#94a3b8;padding:48px 24px 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:36px}
+.footer-brand p{font-size:0.82rem;line-height:1.7;max-width:260px;margin-top:12px}
+.footer-col h4{color:#fff;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:700}
+.footer-col a{display:block;padding:3px 0;font-size:0.82rem;color:#94a3b8;transition:color var(--transition)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:0.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:1024px){
+  .phase{grid-template-columns:1fr;gap:40px}
+  .phase.reverse{direction:ltr}
+  .safety-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  section{padding:64px 24px}
+  .safety-section{margin:0 16px;padding:48px 24px}
+  .footer-top{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire"> Inroad Engine</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works" class="active">How It Works</a></li>
+      <li><a href="/use-cases">Use Cases</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="nav-cta" target="_blank">Book a Demo</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="/">Home</a>
+  <a href="/how-it-works">How It Works</a>
+  <a href="/use-cases">Use Cases</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/calculator">Calculator</a>
+  <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" target="_blank">Book a Demo →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">⚙️ Under the Hood</div>
+    <h1>How the <span class="highlight">Inroad Engine</span> Works</h1>
+    <p class="hero-sub">A detailed look at how we analyze your relationships, score prospects, and surface warm introduction opportunities your team would never find manually.</p>
+  </div>
+</section>
+
+<!-- PHASE 1 -->
+<section>
+  <div class="container">
+
+    <div class="phase fade-in">
+      <div class="phase-text">
+        <div class="phase-num">1</div>
+        <h2>You Share Your Centers of Influence</h2>
+        <p>It starts with a simple question: who already trusts you? We call these people your Centers of Influence (COIs). They're your existing clients, referral partners, mentors, strategic allies, and business friends.</p>
+        <p>You don't need to export anything. Just give us their names and LinkedIn profiles. Most clients start with 5-10 COIs and expand from there.</p>
+        <ul class="phase-detail">
+          <li><span>→</span>Current clients who love your work</li>
+          <li><span>→</span>Referral partners in complementary industries</li>
+          <li><span>→</span>Mentors, advisors, or peer group members</li>
+          <li><span>→</span>Past colleagues who've moved to new companies</li>
+          <li><span>→</span>Anyone who would happily introduce you if asked</li>
+        </ul>
+      </div>
+      <div class="phase-visual">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Your Centers of Influence</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">BB</div>
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Brian B.</div><div style="font-size:9px;color:#94a3b8">Client, EO Member</div></div>
+            </div>
+            <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">JM</div>
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">John M.</div><div style="font-size:9px;color:#94a3b8">Vistage Chair</div></div>
+            </div>
+            <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">RF</div>
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Rivkie F.</div><div style="font-size:9px;color:#94a3b8">Business Coach</div></div>
+            </div>
+            <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">MK</div>
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Mark K.</div><div style="font-size:9px;color:#94a3b8">CEO, Sales Co.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase reverse fade-in">
+      <div class="phase-text">
+        <div class="phase-num">2</div>
+        <h2>We Map Their LinkedIn Engagement</h2>
+        <p>This is where the intelligence happens. We don't just look at who your COIs are connected to. We analyze who they <strong>actually engage with</strong> on LinkedIn.</p>
+        <p>Comments, reposts, reactions, endorsements. These are signals of real relationships, not just a "connect" button click from 5 years ago. There's a massive difference between a LinkedIn connection and a real relationship.</p>
+        <ul class="phase-detail">
+          <li><span>→</span><strong>Comments &amp; replies</strong> indicate active, two-way relationships</li>
+          <li><span>→</span><strong>Reposts &amp; shares</strong> show respect and amplification</li>
+          <li><span>→</span><strong>Reactions</strong> (especially thoughtful ones) signal regular attention</li>
+          <li><span>→</span><strong>Endorsements &amp; recommendations</strong> prove deep trust</li>
+          <li><span>→</span><strong>Frequency matters</strong>: engaging weekly vs. once a year tells a different story</li>
+        </ul>
+      </div>
+      <div class="phase-visual">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">LinkedIn Engagement Analysis</div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:16px;margin-bottom:8px">
+            <div style="font-size:11px;font-weight:700;color:#f1f5f9;margin-bottom:10px">Brian Bulger's Activity (last 90 days)</div>
+            <div style="display:flex;gap:6px;margin-bottom:12px">
+              <span style="background:rgba(59,130,246,0.15);color:#60a5fa;font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px">💬 47 comments</span>
+              <span style="background:rgba(139,92,246,0.15);color:#a78bfa;font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px">🔄 12 reposts</span>
+              <span style="background:rgba(249,115,22,0.15);color:#fb923c;font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px">👍 89 reactions</span>
+            </div>
+            <div style="border-top:1px solid #1e293b;padding-top:10px">
+              <div style="font-size:9px;color:#64748b;text-transform:uppercase;margin-bottom:8px">Top Engaged Connections</div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+                <div style="font-size:10px;font-weight:800;color:#f97316;width:14px">1</div>
+                <div style="font-size:10px;font-weight:600;color:#f1f5f9;flex:1">Sarah Cohen, VP Marketing</div>
+                <div style="font-size:9px;color:#4ade80">14 interactions</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+                <div style="font-size:10px;font-weight:800;color:#f97316;width:14px">2</div>
+                <div style="font-size:10px;font-weight:600;color:#f1f5f9;flex:1">Michael Torres, CEO</div>
+                <div style="font-size:9px;color:#4ade80">11 interactions</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+                <div style="font-size:10px;font-weight:800;color:#eab308;width:14px">3</div>
+                <div style="font-size:10px;font-weight:600;color:#f1f5f9;flex:1">Jennifer Walsh, CMO</div>
+                <div style="font-size:9px;color:#eab308">7 interactions</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+                <div style="font-size:10px;font-weight:800;color:#eab308;width:14px">4</div>
+                <div style="font-size:10px;font-weight:600;color:#f1f5f9;flex:1">David Park, Dir. Operations</div>
+                <div style="font-size:9px;color:#eab308">5 interactions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase fade-in">
+      <div class="phase-text">
+        <div class="phase-num">3</div>
+        <h2>AI Scores Every Prospect</h2>
+        <p>Every person your COI engages with gets run through our scoring engine. We evaluate them across five dimensions to determine who's actually worth pursuing.</p>
+        <p>This isn't a vanity score. Each dimension is weighted based on how likely the intro will convert to a real conversation. A perfect ICP fit with zero warmth scores lower than a decent fit with a strong relationship.</p>
+        <ul class="phase-detail">
+          <li><span>🎯</span><strong>ICP Fit (0-100):</strong> Does this person match your ideal customer profile? Industry, title, company size, geography.</li>
+          <li><span>🔥</span><strong>Warmth (0-100):</strong> How strong is the actual relationship between your COI and this person? Based on engagement frequency and depth.</li>
+          <li><span>👔</span><strong>Authority (0-100):</strong> Are they a decision-maker? Can they sign a check or do they need to "run it up the flagpole"?</li>
+          <li><span>📊</span><strong>Activity (0-100):</strong> Are they actively posting and engaging on LinkedIn? Active people respond to intros faster.</li>
+          <li><span>🌐</span><strong>Strategic Value (0-100):</strong> Even if they're not a buyer, would this person open doors to new markets, industries, or referral chains?</li>
+        </ul>
+      </div>
+      <div class="phase-visual">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">5-Dimension Score Breakdown</div>
+          <div style="max-width:320px;margin:0 auto">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+              <div style="font-size:10px;color:#94a3b8;width:60px;text-align:right">ICP Fit</div>
+              <div style="flex:1;height:8px;background:#1e293b;border-radius:4px;overflow:hidden"><div style="width:85%;height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:4px"></div></div>
+              <div style="font-size:11px;font-weight:700;color:#60a5fa;width:24px">85</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+              <div style="font-size:10px;color:#94a3b8;width:60px;text-align:right">Warmth</div>
+              <div style="flex:1;height:8px;background:#1e293b;border-radius:4px;overflow:hidden"><div style="width:72%;height:100%;background:linear-gradient(90deg,#f97316,#fb923c);border-radius:4px"></div></div>
+              <div style="font-size:11px;font-weight:700;color:#f97316;width:24px">72</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+              <div style="font-size:10px;color:#94a3b8;width:60px;text-align:right">Authority</div>
+              <div style="flex:1;height:8px;background:#1e293b;border-radius:4px;overflow:hidden"><div style="width:90%;height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:4px"></div></div>
+              <div style="font-size:11px;font-weight:700;color:#22c55e;width:24px">90</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+              <div style="font-size:10px;color:#94a3b8;width:60px;text-align:right">Activity</div>
+              <div style="flex:1;height:8px;background:#1e293b;border-radius:4px;overflow:hidden"><div style="width:68%;height:100%;background:linear-gradient(90deg,#8b5cf6,#a78bfa);border-radius:4px"></div></div>
+              <div style="font-size:11px;font-weight:700;color:#a78bfa;width:24px">68</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+              <div style="font-size:10px;color:#94a3b8;width:60px;text-align:right">Strategic</div>
+              <div style="flex:1;height:8px;background:#1e293b;border-radius:4px;overflow:hidden"><div style="width:78%;height:100%;background:linear-gradient(90deg,#eab308,#facc15);border-radius:4px"></div></div>
+              <div style="font-size:11px;font-weight:700;color:#eab308;width:24px">78</div>
+            </div>
+            <div style="text-align:center;padding-top:12px;border-top:1px solid #1e293b">
+              <div style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:1px">Composite Score</div>
+              <div style="font-size:32px;font-weight:800;color:#f97316;margin-top:2px">78.6</div>
+              <div style="display:inline-block;background:rgba(249,115,22,0.15);color:#f97316;font-size:9px;font-weight:700;padding:3px 10px;border-radius:4px;margin-top:4px">HIGH PRIORITY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase reverse fade-in">
+      <div class="phase-text">
+        <div class="phase-num">4</div>
+        <h2>Everything Lands in Your Dashboard</h2>
+        <p>All of this intelligence flows into your private dashboard. Every COI. Every scored prospect. Every warm path. Organized, searchable, and actionable.</p>
+        <p>The dashboard is designed for speed. You should be able to open it, find a high-priority prospect, and request an intro in under 60 seconds. No training required. No CRM certification.</p>
+        <ul class="phase-detail">
+          <li><span>→</span>Accordion-style COI explorer. Click to expand any contact.</li>
+          <li><span>→</span>Filter by score, industry, title, or status</li>
+          <li><span>→</span>Color-coded priority: orange = high, yellow = medium, blue = standard</li>
+          <li><span>→</span>Track outreach status: requested, skipped, meeting booked, closed</li>
+          <li><span>→</span>New reports added daily. Your dashboard grows over time.</li>
+        </ul>
+      </div>
+      <div class="phase-visual">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Your Private Dashboard</div>
+          <div style="display:flex;justify-content:center;gap:20px;padding:8px 0 12px;border-bottom:1px solid #1e293b;margin-bottom:10px">
+            <div style="text-align:center"><div style="font-size:18px;font-weight:800;color:#60a5fa">16</div><div style="font-size:8px;color:#64748b;text-transform:uppercase">COIs</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:800;color:#60a5fa">268</div><div style="font-size:8px;color:#64748b;text-transform:uppercase">Prospects</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:800;color:#f97316">82</div><div style="font-size:8px;color:#64748b;text-transform:uppercase">High Priority</div></div>
+          </div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:10px 14px;margin-bottom:6px;display:flex;align-items:center;gap:10px">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff">BB</div>
+            <div style="flex:1;font-size:11px;font-weight:600;color:#f1f5f9">Brian Bulger</div>
+            <div style="font-size:11px;font-weight:800;color:#3b82f6">32</div>
+            <div style="font-size:12px;color:#475569">›</div>
+          </div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:10px 14px;margin-bottom:6px;display:flex;align-items:center;gap:10px">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff">JM</div>
+            <div style="flex:1;font-size:11px;font-weight:600;color:#f1f5f9">John Monahan</div>
+            <div style="font-size:11px;font-weight:800;color:#3b82f6">28</div>
+            <div style="font-size:12px;color:#475569">›</div>
+          </div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff">MK</div>
+            <div style="flex:1;font-size:11px;font-weight:600;color:#f1f5f9">Mark Kesti</div>
+            <div style="font-size:11px;font-weight:800;color:#3b82f6">30</div>
+            <div style="font-size:12px;color:#475569">›</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="phase fade-in">
+      <div class="phase-text">
+        <div class="phase-num">5</div>
+        <h2>You Request the Intro. 30 Seconds.</h2>
+        <p>Here's where it becomes revenue. You found a high-scoring prospect. You see the warm path. Now what?</p>
+        <p>Click the "Request Intro" button. A pre-written, personalized email opens in your inbox, addressed to your COI, asking for the introduction. The email is written to be natural, respectful, and effective. You can edit it or send as-is.</p>
+        <p>No templates to find. No awkward "hey, do you know anyone at...?" conversations. Just a clear, professional ask that makes it easy for your COI to say yes.</p>
+        <ul class="phase-detail">
+          <li><span>→</span>Pre-written email includes the prospect's name, title, and company</li>
+          <li><span>→</span>Explains why you want the intro (based on ICP match)</li>
+          <li><span>→</span>Makes it easy for your COI: includes a forwardable blurb about you</li>
+          <li><span>→</span>30 seconds from dashboard to sent email</li>
+          <li><span>→</span>Track the status: requested → intro made → meeting booked → closed</li>
+        </ul>
+      </div>
+      <div class="phase-visual">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">One-Click Intro Request</div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:16px">
+            <div style="font-size:10px;color:#64748b;margin-bottom:4px">To: Brian Bulger</div>
+            <div style="font-size:10px;color:#64748b;margin-bottom:8px">Subject: Quick intro request — Sarah Cohen at TechCo</div>
+            <div style="border-top:1px solid #1e293b;padding-top:10px;font-size:11px;color:#94a3b8;line-height:1.6">
+              <p style="margin-bottom:8px">Hey Brian,</p>
+              <p style="margin-bottom:8px">Hope you're doing well. I noticed you're connected with <span style="color:#60a5fa;font-weight:600">Sarah Cohen</span> (VP Marketing at TechCo). She looks like someone who could really benefit from what we do.</p>
+              <p style="margin-bottom:8px">Would you be open to making a quick intro? I'd love to have a conversation with her about [your service]. Happy to send you a blurb you can forward if that's easier.</p>
+              <p style="margin-bottom:8px">No pressure at all. I appreciate you either way.</p>
+              <p style="color:#f1f5f9">Best,<br>[Your Name]</p>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #1e293b">
+              <span style="background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:6px 16px;border-radius:6px;cursor:pointer">Send Email →</span>
+              <span style="background:rgba(255,255,255,0.06);color:#94a3b8;font-size:10px;font-weight:600;padding:6px 12px;border-radius:6px">Edit First</span>
+              <span style="background:rgba(255,255,255,0.06);color:#94a3b8;font-size:10px;font-weight:600;padding:6px 12px;border-radius:6px">Skip</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SAFETY / PRIVACY -->
+<section style="padding-bottom:48px">
+  <div class="safety-section fade-in" style="text-align:center">
+    <div class="section-label">Privacy &amp; Safety</div>
+    <h2 class="section-title">What We Never Do</h2>
+    <div class="safety-grid">
+      <div class="safety-card">
+        <h4>🔒 No LinkedIn Login</h4>
+        <p>We never ask for your LinkedIn credentials. No bots running on your profile. No risk of LinkedIn restrictions. Zero.</p>
+      </div>
+      <div class="safety-card">
+        <h4>🚫 No Automated Messages</h4>
+        <p>We never send messages, connection requests, or emails on your behalf. You control every single action. We just provide the intelligence.</p>
+      </div>
+      <div class="safety-card">
+        <h4>🛡️ Your Data Stays Yours</h4>
+        <p>Your COI list, prospect scores, and dashboard are private. We don't share your data, sell it, or use it to train models. Period.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-in">
+    <h2 class="section-title">Ready to See It in Action?</h2>
+    <p class="section-desc" style="margin:0 auto 32px">Book a 15-minute demo. We'll walk through the system with your real network and show you warm paths you didn't know existed.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="btn btn-blue" target="_blank" style="font-size:17px;padding:16px 36px">Book Your Demo →</a>
+      <a href="/use-cases" class="btn btn-outline">Explore Use Cases →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire" style="height:28px;filter:brightness(0) invert(1);opacity:0.6">
+        <p>Inroad Engine by Outspire. AI-powered referral intelligence for B2B teams.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="/">Overview</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Use Cases</h4>
+        <a href="/use-cases/crm">CRM Sync</a>
+        <a href="/use-cases/databases">Prospect Databases</a>
+        <a href="/use-cases/networking">Networking Groups</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo">Book a Demo</a>
+        <a href="mailto:monte@roycebrookmedia.com">Email Us</a>
+        <a href="tel:908-287-5015">(908) 287-5015</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Outspire, a Royce Brook Media Company. All rights reserved.</span>
+      <span>52 West Main Street, Somerville, NJ</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+</script>
+
+</body>
+</html>

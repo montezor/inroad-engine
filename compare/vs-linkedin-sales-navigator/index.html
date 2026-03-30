@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inroad Engine vs LinkedIn Sales Navigator — Which Is Better for Warm Introductions?</title>
+<meta name="description" content="LinkedIn Sales Navigator alternative for warm introductions. Compare features, pricing, and results. Better than Sales Navigator for referrals and relationship-driven revenue.">
+<link rel="icon" href="https://outspire-site.pages.dev/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Inroad Engine vs LinkedIn Sales Navigator — Which Is Better?">
+<meta property="og:description" content="Sales Navigator shows connections. We show you who's actually warm and ready for an intro. See the full comparison.">
+<link rel="canonical" href="https://network-revenue-system.pages.dev/compare/vs-linkedin-sales-navigator/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Inroad Engine a LinkedIn Sales Navigator alternative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes and no. Sales Navigator is built for cold outreach via InMail. Inroad Engine is built for warm introductions through people who already trust you. They solve different problems — but if your goal is warm referrals, our system is purpose-built for that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use both Sales Navigator and Inroad Engine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Some teams use Sales Navigator for broad prospecting and the Inroad Engine specifically for warm introduction paths. They complement each other well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Inroad Engine access my LinkedIn account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We never ask for your LinkedIn login. Our system analyzes publicly available engagement data — comments, reposts, reactions — to identify warm relationships. No bots, no scraping of your account, no risk to your profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does LinkedIn Sales Navigator cost vs the Inroad Engine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sales Navigator costs $99-$179/month per user and still requires you to do manual research on who's warm. The Inroad Engine is a done-for-you intelligence service that delivers scored, prioritized warm intro opportunities directly to your inbox."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Inroad Engine do that Sales Navigator can't?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sales Navigator shows you who's connected to whom. We show you who's actively engaged with your Centers of Influence, score them against your ICP, rank them by warmth, and write the intro request emails for you. It's the difference between a phone book and a personal concierge."
+      }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#fafafa;
+  --bg-dark:#0a0e1a;
+  --bg-card:#ffffff;
+  --blue:#3b82f6;
+  --blue-dark:#2563eb;
+  --blue-light:#eff6ff;
+  --blue-glow:rgba(59,130,246,0.15);
+  --purple:#8b5cf6;
+  --green:#16a34a;
+  --orange:#f97316;
+  --red:#ef4444;
+  --navy:#0f172a;
+  --text:#0f172a;
+  --text-secondary:#475569;
+  --text-muted:#94a3b8;
+  --border:#e2e8f0;
+  --border-light:#f1f5f9;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --max-w:1200px;
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-xs:8px;
+  --transition:.3s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:color var(--transition)}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1rem;color:#fff}
+.nav-logo img{height:28px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:#94a3b8;font-size:13px;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--blue);color:#fff!important;padding:9px 20px;border-radius:var(--radius-xs);font-weight:600;font-size:13px;transition:all var(--transition)}
+.nav-cta:hover{background:var(--blue-dark);box-shadow:0 4px 16px var(--blue-glow)}
+.hamburger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#fff;padding:8px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 24px;z-index:999}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 0;font-weight:500;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px}
+
+/* HERO */
+.hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--blue-light) 100%)}
+.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 70%);pointer-events:none}
+.container{max-width:var(--max-w);margin:0 auto;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);border:1px solid rgba(59,130,246,0.2);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--blue);margin-bottom:20px}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:20px;color:var(--text)}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.15rem;color:var(--text-secondary);max-width:620px;margin:0 auto 36px;line-height:1.7}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 32px;border-radius:var(--radius-xs);font-weight:600;font-size:15px;transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--blue-glow);color:#fff}
+.btn-outline{background:#fff;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+
+/* SECTIONS */
+section{padding:96px 24px}
+.section-center{text-align:center}
+.section-label{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px}
+.section-desc{font-size:1.05rem;color:var(--text-secondary);max-width:560px;line-height:1.7}
+.section-center .section-desc{margin:0 auto}
+
+/* COMPARISON TABLE */
+.compare-section{background:#fff}
+.compare-table{max-width:900px;margin:48px auto 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.compare-row:last-child{border-bottom:none}
+.compare-row.header{background:var(--navy);color:#fff}
+.compare-row.header .compare-cell{font-weight:700;font-size:0.85rem;color:#fff}
+.compare-row.header .compare-cell:first-child{color:#94a3b8}
+.compare-cell{padding:18px 24px;font-size:0.88rem;display:flex;align-items:center;gap:8px}
+.compare-cell:not(:last-child){border-right:1px solid var(--border)}
+.compare-row.header .compare-cell:not(:last-child){border-right:1px solid rgba(255,255,255,0.1)}
+.compare-row:not(.header):nth-child(even){background:#fafafa}
+.compare-cell .icon-yes{color:var(--green);font-weight:700}
+.compare-cell .icon-no{color:var(--red);font-weight:700;opacity:0.5}
+.compare-cell .icon-partial{color:var(--orange);font-weight:700}
+.compare-feature{font-weight:600;color:var(--text)}
+.winner-cell{background:rgba(59,130,246,0.04)}
+
+/* KEY POINTS */
+.points-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.point-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:32px 28px;transition:all var(--transition)}
+.point-card:hover{border-color:var(--blue);box-shadow:0 8px 24px var(--blue-glow);transform:translateY(-2px)}
+.point-icon{font-size:1.5rem;margin-bottom:14px}
+.point-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.point-card p{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+
+/* STATS */
+.stats-section{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:flex;justify-content:center;gap:64px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:3rem;font-weight:800;color:var(--blue);letter-spacing:-0.03em}
+.stat-label{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+
+/* VS BANNER */
+.vs-banner{background:var(--navy);color:#fff;padding:48px 24px;text-align:center}
+.vs-banner h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:12px;letter-spacing:-0.02em}
+.vs-banner p{font-size:0.95rem;color:#94a3b8;max-width:600px;margin:0 auto}
+
+/* FAQ */
+.faq-grid{max-width:700px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-q{font-weight:600;font-size:0.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--blue);font-weight:600;transition:transform var(--transition)}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:0.88rem;color:var(--text-secondary);line-height:1.7;text-align:left}
+.faq-item.open .faq-a{max-height:400px;padding-top:12px}
+
+/* CTA */
+.cta-section{text-align:center;background:#fff;border-top:1px solid var(--border)}
+.cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:12px}
+.cta-section p{font-size:1.05rem;color:var(--text-secondary);max-width:480px;margin:0 auto 32px}
+
+/* FOOTER */
+footer{background:var(--navy);color:#94a3b8;padding:64px 24px 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:48px}
+.footer-brand p{font-size:0.82rem;line-height:1.7;max-width:260px;margin-top:12px}
+.footer-col h4{color:#fff;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:700}
+.footer-col a{display:block;padding:3px 0;font-size:0.82rem;color:#94a3b8;transition:color var(--transition)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:0.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .points-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .hero h1{font-size:2rem}
+  .points-grid{grid-template-columns:1fr}
+  .compare-row{grid-template-columns:1fr 1fr 1fr}
+  .compare-cell{padding:12px 10px;font-size:0.78rem}
+  .stats-grid{gap:32px}
+  .footer-top{flex-direction:column}
+  section{padding:64px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire"> Inroad Engine
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/use-cases">Use Cases</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="nav-cta" target="_blank">Book a Demo</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="/">Home</a>
+  <a href="/how-it-works">How It Works</a>
+  <a href="/use-cases">Use Cases</a>
+  <a href="/calculator">Calculator</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" target="_blank">Book a Demo →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">⚔️ Head-to-Head Comparison</div>
+    <h1>Inroad Engine vs<br><span class="highlight">LinkedIn Sales Navigator</span></h1>
+    <p class="hero-sub">Sales Navigator shows you who's connected. We show you who's actually warm, score them against your ICP, and write the intro request for you. Here's how they compare.</p>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="btn btn-blue" target="_blank">Book a Demo →</a>
+      <a href="#comparison" class="btn btn-outline">See the Comparison</a>
+    </div>
+  </div>
+</section>
+
+<!-- VS BANNER -->
+<div class="vs-banner">
+  <h2>Sales Navigator finds contacts. We find warm paths to revenue.</h2>
+  <p>LinkedIn Sales Navigator is a prospecting tool built for cold outreach. The Inroad Engine is referral intelligence built for warm introductions. Different tools, different philosophies.</p>
+</div>
+
+<!-- COMPARISON TABLE -->
+<section id="comparison" class="compare-section">
+  <div class="container section-center">
+    <div class="section-label">Feature Comparison</div>
+    <h2 class="section-title">Side-by-Side Breakdown</h2>
+    <p class="section-desc">See exactly where each tool excels and where it falls short for relationship-driven revenue.</p>
+    <div class="compare-table fade-in">
+      <div class="compare-row header">
+        <div class="compare-cell">Feature</div>
+        <div class="compare-cell">Sales Navigator</div>
+        <div class="compare-cell">Inroad Engine</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Warm intro identification</div>
+        <div class="compare-cell"><span class="icon-no">✕</span> Shows connections, not warmth</div>
+        <div class="compare-cell winner-cell"><span class="icon-yes">✓</span> Scores warmth by engagement</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Engagement analysis</div>
+        <div class="compare-cell"><span class="icon-no">✕</span> Not available</div>
+        <div class="compare-cell winner-cell"><span class="icon-yes">✓</span> Comments, reposts, reactions</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">ICP scoring</div>
+        <div class="compare-cell"><span class="icon-partial">◐</span> Basic filters only</div>
+        <div class="compare-cell winner-cell"><span class="icon-yes">✓</span> Multi-dimensional scoring</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Pre-written intro emails</div>
+        <div class="compare-cell"><span class="icon-no">✕</span> You write everything</div>
+        <div class="compare-cell winner-cell"><span class="icon-yes">✓</span> Done-for-you templates</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">CRM sync</div>
+        <div class="compare-cell"><span class="icon-yes">✓</span> Salesforce, HubSpot</div>
+        <div class="compare-cell"><span class="icon-yes">✓</span> Any major CRM</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Team network mapping</div>
+        <div class="compare-cell"><span class="icon-partial">◐</span> TeamLink (limited)</div>
+        <div class="compare-cell winner-cell"><span class="icon-yes">✓</span> Full team network analysis</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">ROI on referrals</div>
+        <div class="compare-cell"><span class="icon-no">✕</span> No referral tracking</div>
+        <div class="compare-cell winner-cell"><span class="icon-yes">✓</span> Track intros to revenue</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Primary use case</div>
+        <div class="compare-cell">Cold outreach via InMail</div>
+        <div class="compare-cell winner-cell">Warm intros via trusted contacts</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell compare-feature">Pricing</div>
+        <div class="compare-cell">$99–$179/mo per user</div>
+        <div class="compare-cell winner-cell">Done-for-you service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY DIFFERENTIATORS -->
+<section>
+  <div class="container section-center">
+    <div class="section-label">Why Teams Switch</div>
+    <h2 class="section-title">What Sales Navigator Can't Do</h2>
+    <div class="points-grid fade-in">
+      <div class="point-card">
+        <div class="point-icon">🎯</div>
+        <h3>Connections ≠ Warmth</h3>
+        <p>Sales Nav shows you that Person A knows Person B. But it can't tell you if they actually like each other, engage with each other's content, or would make an introduction. We can.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">📊</div>
+        <h3>Engagement Intelligence</h3>
+        <p>We analyze real LinkedIn activity: who's commenting on whose posts, who's reposting, who's consistently engaging. That's the signal that predicts who will actually make an intro.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">💰</div>
+        <h3>$99–$179/mo for DIY Research</h3>
+        <p>Sales Navigator gives you the raw data and lets you figure it out. You still spend hours manually researching who's warm. Our system does that analysis for you automatically.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">❄️</div>
+        <h3>Built for Cold, Not Warm</h3>
+        <p>Sales Navigator's core feature is InMail. That's cold outreach to strangers. If your strategy is warm introductions through trusted contacts, you need a different tool entirely.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">✉️</div>
+        <h3>We Write the Ask</h3>
+        <p>Every warm introduction opportunity comes with pre-written intro request emails. You don't have to figure out what to say. Just review, personalize if needed, and send.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">📈</div>
+        <h3>Track the ROI</h3>
+        <p>Sales Navigator has no concept of referral tracking. We map every intro request to meetings booked and deals closed, so you can measure the actual revenue from your network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid fade-in">
+      <div class="stat-item">
+        <div class="stat-num">40–60%</div>
+        <div class="stat-label">Meeting rate from warm intros</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3–5%</div>
+        <div class="stat-label">Typical InMail response rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4–5x</div>
+        <div class="stat-label">Faster close on referred deals</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">84%</div>
+        <div class="stat-label">B2B deals start with a referral</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#fff">
+  <div class="container section-center">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this a LinkedIn Sales Navigator alternative?</div>
+        <div class="faq-a">Yes and no. Sales Navigator is built for cold outreach via InMail. Inroad Engine is built for warm introductions through people who already trust you. They solve different problems. But if your goal is warm referrals, our system is purpose-built for exactly that.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use both tools together?</div>
+        <div class="faq-a">Absolutely. Some teams use Sales Navigator for broad prospecting and the Inroad Engine specifically for warm introduction paths. They complement each other well.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you need access to my LinkedIn account?</div>
+        <div class="faq-a">No. We never ask for your LinkedIn login. Our system analyzes publicly available engagement data. No bots, no scraping of your account, no risk to your profile.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does Sales Navigator cost vs your system?</div>
+        <div class="faq-a">Sales Navigator costs $99–$179/month per user and still requires you to do the manual research on who's warm. The Inroad Engine is a done-for-you intelligence service that delivers scored, prioritized warm intro opportunities directly to you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does the Inroad Engine do that Sales Navigator can't?</div>
+        <div class="faq-a">Sales Navigator shows you who's connected to whom. We show you who's actively engaged with your Centers of Influence, score them against your ICP, rank them by warmth, and write the intro request emails for you. It's the difference between a phone book and a personal concierge.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-in">
+    <h2>Stop Paying for Connections.<br>Start Getting Warm Introductions.</h2>
+    <p>Book a 15-minute demo and see how the Inroad Engine finds warm paths hiding in your existing network.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="btn btn-blue" target="_blank" style="font-size:17px;padding:16px 36px">Book Your Demo →</a>
+      <a href="/" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire" style="height:28px;filter:brightness(0) invert(1);opacity:0.6">
+        <p>Inroad Engine by Outspire. AI-powered referral intelligence for B2B teams that grow through relationships.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Overview</h4>
+        <a href="/">Overview</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/calculator">Calculator</a>
+        <a href="/pricing">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="/crm">CRM Sync</a>
+        <a href="/databases">Databases</a>
+        <a href="/use-cases/networking">Networking</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" target="_blank">Book a Demo</a>
+        <a href="mailto:monte@roycebrookmedia.com">monte@roycebrookmedia.com</a>
+        <a href="tel:908-287-5015">(908) 287-5015</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Outspire, a Royce Brook Media Company. All rights reserved.</span>
+      <span>52 West Main Street, Somerville, NJ</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+</script>
+
+</body>
+</html>

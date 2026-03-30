@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaaS Sales Teams: Warm Introductions Into Target Accounts | Inroad Engine</title>
+<meta name="description" content="Upload your G2, BuiltWith, HG Insights, or Crunchbase prospect list and instantly discover warm introduction paths to CTOs, VPs of Engineering, and IT Directors through your team's network.">
+<meta name="keywords" content="SaaS warm introductions, SaaS sales referral system, G2 buyer intent warm leads, BuiltWith warm path, enterprise SaaS warm intros, CTO introductions, VP Engineering referral, target account selling">
+<link rel="icon" href="https://outspire-site.pages.dev/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://network-revenue-system.pages.dev/use-cases/databases/saas/">
+<style>
+:root{--bg:#fafafa;--bg-dark:#0a0e1a;--blue:#3b82f6;--blue-dark:#2563eb;--blue-light:#eff6ff;--blue-glow:rgba(59,130,246,0.15);--purple:#8b5cf6;--green:#16a34a;--orange:#f97316;--navy:#0f172a;--text:#0f172a;--text-secondary:#475569;--text-muted:#94a3b8;--border:#e2e8f0;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--max-w:1200px;--radius:16px;--radius-sm:10px;--radius-xs:8px;--transition:.3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:color var(--transition)}
+img{max-width:100%;display:block}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1rem;color:#fff}
+.nav-logo img{height:28px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:#94a3b8;font-size:13px;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff}
+.nav-cta{background:var(--blue);color:#fff!important;padding:9px 20px;border-radius:var(--radius-xs);font-weight:600;font-size:13px;transition:all var(--transition)}
+.nav-cta:hover{background:var(--blue-dark)}
+.hamburger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#fff;padding:8px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 24px;z-index:999}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 0;font-weight:500;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px}
+
+.container{max-width:var(--max-w);margin:0 auto;position:relative}
+.section-label{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px}
+.section-desc{font-size:1.05rem;color:var(--text-secondary);max-width:560px;line-height:1.7}
+.btn{padding:14px 32px;border-radius:var(--radius-xs);font-weight:600;font-size:15px;transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--blue-glow);color:#fff}
+.btn-outline{background:#fff;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+.hero{padding:140px 24px 80px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--blue-light) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);border:1px solid rgba(59,130,246,0.2);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--blue);margin-bottom:20px}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.04em;margin-bottom:20px}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.15rem;color:var(--text-secondary);max-width:640px;margin:0 auto 36px;line-height:1.7}
+
+section{padding:96px 24px}
+
+.db-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.db-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:32px 28px;transition:all var(--transition);position:relative;overflow:hidden}
+.db-card:hover{border-color:var(--blue);box-shadow:0 8px 24px var(--blue-glow);transform:translateY(-2px)}
+.db-tag{position:absolute;top:12px;right:12px;font-size:9px;font-weight:700;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px}
+.db-tag.industry{background:rgba(139,92,246,0.1);color:var(--purple)}
+.db-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.db-card .db-desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
+.db-use{font-size:0.78rem;color:var(--text-muted);line-height:1.5}
+.db-use strong{color:var(--text-secondary)}
+
+.flow-section{background:var(--navy);color:#fff;border-radius:var(--radius);max-width:var(--max-w);margin:0 auto;padding:64px 48px;position:relative;overflow:hidden}
+.flow-section::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,0.1),transparent 70%);pointer-events:none}
+.flow-section .section-label{color:var(--blue)}
+.flow-section .section-title{color:#fff}
+.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.flow-step{text-align:center}
+.flow-num{width:44px;height:44px;border-radius:50%;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--blue);margin:0 auto 12px}
+.flow-step h4{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+.flow-step p{font-size:0.8rem;color:#94a3b8;line-height:1.5}
+
+.big-feat{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.big-feat.reverse{direction:rtl}
+.big-feat.reverse > *{direction:ltr}
+.big-feat-text h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:16px}
+.big-feat-text p{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:24px}
+.big-feat-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.big-feat-list li{display:flex;align-items:center;gap:10px;font-size:0.9rem;font-weight:500}
+.big-feat-list li::before{content:'✓';color:var(--blue);font-weight:800;font-size:0.8rem;width:20px;height:20px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.big-feat-img{border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.08);border:1px solid var(--border);background:var(--bg-dark)}
+
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.pain-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:28px 24px;text-align:center;transition:all var(--transition)}
+.pain-card:hover{border-color:var(--blue);box-shadow:0 4px 16px var(--blue-glow)}
+.pain-icon{font-size:2rem;margin-bottom:12px}
+.pain-card h4{font-size:0.95rem;font-weight:700;margin-bottom:6px}
+.pain-card p{font-size:0.82rem;color:var(--text-secondary);line-height:1.6}
+
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.stat-box{text-align:center;padding:24px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm)}
+.stat-num{font-size:2.2rem;font-weight:800;color:var(--blue);line-height:1}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:4px}
+
+.cta-section{text-align:center;background:#fff;border-top:1px solid var(--border)}
+footer{background:var(--navy);color:#94a3b8;padding:48px 24px 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:36px}
+.footer-brand p{font-size:0.82rem;line-height:1.7;max-width:260px;margin-top:12px}
+.footer-col h4{color:#fff;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:700}
+.footer-col a{display:block;padding:3px 0;font-size:0.82rem;color:#94a3b8;transition:color var(--transition)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:0.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:1024px){
+  .big-feat{grid-template-columns:1fr;gap:40px}
+  .big-feat.reverse{direction:ltr}
+  .flow-steps{grid-template-columns:repeat(2,1fr)}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .db-grid{grid-template-columns:1fr}
+  .pain-grid{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  section{padding:64px 24px}
+  .flow-section{margin:0 16px;padding:48px 24px}
+  .footer-top{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire"> Inroad Engine</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/use-cases" class="active">Use Cases</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="nav-cta" target="_blank">Book a Demo</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="/">Home</a>
+  <a href="/how-it-works">How It Works</a>
+  <a href="/use-cases">Use Cases</a>
+  <a href="/calculator">Calculator</a>
+  <a href="/#faq">FAQ</a>
+  <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" target="_blank">Book a Demo →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">💻 SaaS Sales</div>
+    <h1>Warm Introductions Into <span class="highlight">Target Accounts</span> Your Team Already Knows</h1>
+    <p class="hero-sub">Every SaaS rep is cold-emailing the same 100 accounts. Stand out by getting warm intros through your team's existing network. Upload your G2, BuiltWith, HG Insights, or Crunchbase list and find warm paths to CTOs, VPs of Engineering, and IT Directors.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px">
+      <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="btn btn-blue" target="_blank">See It With Your List →</a>
+      <a href="/use-cases/databases" class="btn btn-outline">← All Databases</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section style="text-align:center">
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Cold Outreach Is Broken for SaaS Sales</h2>
+    <p class="section-desc" style="margin:0 auto 48px">Every vendor is running the same playbook. Same sequences, same templates, same inbox. The teams that win are the ones that skip the line entirely with a warm introduction.</p>
+    <div class="pain-grid fade-in">
+      <div class="pain-card">
+        <div class="pain-icon">📧</div>
+        <h4>Cold Email Fatigue</h4>
+        <p>Average SaaS buyer gets 120+ outreach emails per week. Your cold sequence is competing with 50 other vendors for the same inbox.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">⏳</div>
+        <h4>Long Sales Cycles</h4>
+        <p>Enterprise SaaS deals take 90-180 days to close. A warm intro can cut that timeline in half by building trust from day one.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🏆</div>
+        <h4>The Champion Problem</h4>
+        <p>You need an internal champion. Cold outreach can't build that. Warm introductions create instant credibility with the person who becomes your champion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="padding-bottom:48px">
+  <div class="flow-section fade-in" style="text-align:center">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From Target Account List to Warm Pipeline</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <h4>Export Your Targets</h4>
+        <p>Pull your target account list from G2, BuiltWith, HG Insights, Crunchbase, or a simple CSV.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <h4>Upload to the System</h4>
+        <p>Drop the file in. We parse company names, tech stacks, titles, funding rounds, and LinkedIn profiles automatically.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <h4>AI Cross-References</h4>
+        <p>Our AI checks every target against your entire team's network. Former colleagues, conference contacts, mutual investors, shared alma maters.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <h4>Warm Paths Surface</h4>
+        <p>See exactly who on your team can get you introduced to each CTO, VP, or Director. Request the intro in one click.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATABASES -->
+<section style="text-align:center;background:#fff">
+  <div class="container">
+    <div class="section-label">Supported Databases</div>
+    <h2 class="section-title">Works With Every Major SaaS Sales Database</h2>
+    <p class="section-desc" style="margin:0 auto">Export your target account list from any of these platforms. We handle the rest.</p>
+    <div class="db-grid fade-in">
+      <div class="db-card">
+        <span class="db-tag industry">Intent</span>
+        <h3>G2</h3>
+        <p class="db-desc">Buyer intent data and software category research. G2 tracks which companies are actively researching your category, reading reviews, and comparing vendors. Real-time buying signals from the largest B2B software marketplace.</p>
+        <div class="db-use"><strong>Best for:</strong> Teams selling into companies actively evaluating your category. Upload your G2 intent list and find who on your team already knows the decision-makers at those accounts.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-tag industry">Technographics</span>
+        <h3>BuiltWith</h3>
+        <p class="db-desc">Technology stack detection across millions of websites. See exactly which tools, platforms, and infrastructure companies are running. Identify competitors' customers and complementary technology users.</p>
+        <div class="db-use"><strong>Best for:</strong> Teams targeting companies using competitor products or complementary tools. Find warm paths to the technical buyers who own those vendor relationships.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-tag industry">Enterprise</span>
+        <h3>HG Insights</h3>
+        <p class="db-desc">Technology installation data for enterprises. Verified technology spend, contract data, and IT budget intelligence across global enterprises. The most accurate technographic data for enterprise selling.</p>
+        <div class="db-use"><strong>Best for:</strong> Enterprise sales teams targeting specific tech stack profiles. Cross-reference HG Insights data with your network to find warm paths into target accounts.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-tag industry">Funding</span>
+        <h3>Crunchbase</h3>
+        <p class="db-desc">Startup and company funding data. Track funding rounds, acquisitions, leadership changes, and company growth signals. The definitive source for identifying companies with fresh budget and growth mandates.</p>
+        <div class="db-use"><strong>Best for:</strong> Teams targeting recently funded companies with budget to spend. Upload your Crunchbase list and discover who on your team knows the founders, CTOs, or board members.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD MOCKUP -->
+<section>
+  <div class="container">
+    <div class="big-feat fade-in">
+      <div class="big-feat-text">
+        <div class="section-label">Network Intelligence</div>
+        <h2>See Who Your Team Already Knows at Target Accounts</h2>
+        <p>Your VP of Sales used to work at the same company as the CTO at Stripe. Your SDR went to college with an engineer at Notion. Your CEO spoke on the same conference panel as the VP of Product at Datadog. All those connections are sitting unused. The system maps them all against your target account list.</p>
+        <ul class="big-feat-list">
+          <li>Cross-reference G2 and BuiltWith exports against team networks</li>
+          <li>Surface former colleague connections at target accounts</li>
+          <li>Identify mutual contacts from conferences and communities</li>
+          <li>Map investor and board connections through shared networks</li>
+          <li>Assign warm leads to the rep with the strongest path</li>
+        </ul>
+      </div>
+      <div class="big-feat-img">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:4px">💻 SaaS Network Match</div>
+          <div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:16px">312 accounts uploaded from G2 Intent · 4 contacts mapped</div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;overflow:hidden">
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:8px 14px;border-bottom:1px solid #1e293b;font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;font-weight:600">
+              <div>Company / Contact</div><div style="text-align:center">Alex</div><div style="text-align:center">Jordan</div><div style="text-align:center">Priya</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:10px 14px;border-bottom:1px solid #1e293b;align-items:center">
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Stripe</div><div style="font-size:9px;color:#64748b">CTO · Infrastructure</div></div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#4ade80">●</div>
+              <div style="text-align:center;font-size:11px;color:#334155">—</div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#f97316">●</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:10px 14px;border-bottom:1px solid #1e293b;align-items:center">
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Notion</div><div style="font-size:9px;color:#64748b">VP Engineering · Platform</div></div>
+              <div style="text-align:center;font-size:11px;color:#334155">—</div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#4ade80">●</div>
+              <div style="text-align:center;font-size:11px;color:#334155">—</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:10px 14px;border-bottom:1px solid #1e293b;align-items:center">
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Figma</div><div style="font-size:9px;color:#64748b">Head of IT · Operations</div></div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#4ade80">●</div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#4ade80">●</div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#4ade80">●</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:10px 14px;align-items:center">
+              <div><div style="font-size:11px;font-weight:600;color:#f1f5f9">Datadog</div><div style="font-size:9px;color:#64748b">VP Product · Monitoring</div></div>
+              <div style="text-align:center;font-size:11px;color:#334155">—</div>
+              <div style="text-align:center;font-size:11px;color:#334155">—</div>
+              <div style="text-align:center;font-size:11px;font-weight:700;color:#f97316">●</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:16px;margin-top:12px">
+            <span style="font-size:9px;color:#64748b"><span style="color:#4ade80;font-weight:700">●</span> Strong connection</span>
+            <span style="font-size:9px;color:#64748b"><span style="color:#f97316;font-weight:700">●</span> Weak connection</span>
+            <span style="font-size:9px;color:#64748b"><span style="color:#334155">—</span> No path</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="text-align:center;background:#fff">
+  <div class="container">
+    <div class="section-label">Why This Matters in SaaS</div>
+    <h2 class="section-title">The Numbers Behind Warm Intros in SaaS Sales</h2>
+    <div class="stat-row fade-in">
+      <div class="stat-box">
+        <div class="stat-num">84%</div>
+        <div class="stat-label">of enterprise purchases start with a referral</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">4.5x</div>
+        <div class="stat-label">faster close on warm intros vs. cold outreach</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">$180K</div>
+        <div class="stat-label">average enterprise SaaS ACV</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">28%</div>
+        <div class="stat-label">of your targets likely have a warm path already</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section>
+  <div class="container">
+    <div class="big-feat reverse fade-in">
+      <div class="big-feat-text">
+        <div class="section-label">Who This Is For</div>
+        <h2>Built for SaaS Teams That Sell on Relationships</h2>
+        <p>Whether you're an SDR trying to break into enterprise accounts, an AE working a complex deal, or a founder doing founder-led sales, the challenge is the same. Getting past the gatekeeper requires someone who already has the relationship. The system finds that person on your team.</p>
+        <ul class="big-feat-list">
+          <li>SaaS sales teams (SDR/AE)</li>
+          <li>Revenue operations teams</li>
+          <li>Channel partnership teams</li>
+          <li>Customer success teams doing expansion</li>
+          <li>Startup founders doing founder-led sales</li>
+        </ul>
+      </div>
+      <div class="big-feat-img">
+        <div style="padding:20px;background:#0a0e1a">
+          <div style="text-align:center;font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:4px">Warm Path Found</div>
+          <div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:16px">2 mutual connections detected</div>
+          <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:20px">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+              <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700">RK</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#f1f5f9">Rahul Kumar</div>
+                <div style="font-size:10px;color:#64748b">CTO · Stripe</div>
+              </div>
+            </div>
+            <div style="border-left:2px solid var(--blue);padding-left:16px;margin-left:20px">
+              <div style="margin-bottom:12px">
+                <div style="font-size:10px;color:var(--blue);font-weight:600;margin-bottom:2px">STRONG CONNECTION</div>
+                <div style="font-size:11px;color:#f1f5f9">Alex (your VP Sales) and Rahul worked together at Twilio from 2019-2021</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:var(--orange);font-weight:600;margin-bottom:2px">WEAK CONNECTION</div>
+                <div style="font-size:11px;color:#f1f5f9">Priya has 3 mutual LinkedIn connections on Stripe's engineering team</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;text-align:center">
+              <div style="display:inline-block;background:var(--blue);color:#fff;padding:8px 20px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer">Request Warm Intro →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-in">
+    <h2 class="section-title">Stop Cold-Emailing Into the Void.<br>Get Introduced Instead.</h2>
+    <p class="section-desc" style="margin:0 auto 32px">Upload your G2 or Crunchbase export and we'll show you how many warm paths your team already has. 15-minute demo. Real results from your real list.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="btn btn-blue" target="_blank" style="font-size:17px;padding:16px 36px">Book Your Demo →</a>
+      <a href="/use-cases/databases" class="btn btn-outline">← All Databases</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire" style="height:28px;filter:brightness(0) invert(1);opacity:0.6">
+        <p>Inroad Engine by Outspire. AI-powered referral intelligence for B2B teams that grow through relationships.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="/">Overview</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/calculator">Calculator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Use Cases</h4>
+        <a href="/use-cases/crm">CRM Sync</a>
+        <a href="/use-cases/databases">Databases</a>
+        <a href="/use-cases/networking">Networking</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo">Book a Demo</a>
+        <a href="mailto:monte@roycebrookmedia.com">Email Us</a>
+        <a href="tel:908-287-5015">(908) 287-5015</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Outspire, a Royce Brook Media Company. All rights reserved.</span>
+      <span>52 West Main Street, Somerville, NJ</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+</script>
+
+</body>
+</html>

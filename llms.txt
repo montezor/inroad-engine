@@ -1,0 +1,75 @@
+# Inroad Engine by Outspire
+
+## What It Is
+Inroad Engine is an AI-powered referral intelligence platform that helps B2B teams discover warm introduction paths to their ideal clients through their existing network. Instead of cold outreach, the system maps your team's LinkedIn connections, scores them against your ideal customer profile, and surfaces specific people who can introduce you to your target accounts.
+
+## How It Works
+1. Upload your prospect list from any CRM, database, or CSV file
+2. The AI maps your team's real LinkedIn engagement (comments, reactions, shared connections)
+3. Every prospect is scored across 5 dimensions: ICP fit, engagement warmth, connection strength, recency, and reciprocity
+4. You see exactly who on your team can introduce you to each prospect
+5. Pre-written intro request emails are generated for each match
+6. Everything syncs back to your CRM with tags and scores
+
+## Key Features
+- AI-powered ICP scoring with 5-dimension analysis
+- LinkedIn engagement mapping (not just connections — actual interactions)
+- Pre-written warm introduction request emails
+- CRM sync (HubSpot, Salesforce, Pipedrive, GoHighLevel, Close, Zoho)
+- Dream client list upload and matching
+- Interactive revenue calculator
+- Team network matrix visualization
+- Meeting prep sheets for networking groups
+- Revenue share partner program
+
+## Supported Databases & Sources
+CRM: HubSpot, Salesforce, Pipedrive, GoHighLevel, Close, Zoho
+Prospect Databases: Seamless.ai, ZoomInfo, Apollo.io, LinkedIn Sales Navigator, Lusha
+Industry Databases: Martindale-Hubbell (Legal), ALM Intelligence (Legal), ThomasNet (Manufacturing), G2 (SaaS), BuiltWith (SaaS), HG Insights (SaaS), Crunchbase (SaaS), BrokerCheck/FINRA (Insurance), AM Best (Insurance), RigDig (Transportation), DAT (Transportation), Definitive Healthcare (Healthcare), Doximity (Healthcare), CoStar (Construction), Dodge (Construction)
+Networking Groups: BNI, Vistage, EO, LeTip, Chamber of Commerce, Mastermind groups
+Also supports: CSV upload, manual entry
+
+## Pricing
+- Starter: $297/month (up to 10 COIs, 1 user)
+- Growth: $497/month (up to 50 COIs, 5 users, CRM sync)
+- Enterprise: Custom pricing (unlimited COIs, API access, white-label)
+- No long-term contracts. Cancel anytime. 30-day money-back guarantee.
+
+## Company
+Built by Outspire, a division of Royce Brook Media LLC
+Location: 52 West Main Street, Somerville, NJ
+Contact: monte@roycebrookmedia.com | (908) 287-5015
+Website: https://network-revenue-system.pages.dev
+
+## Page Index
+- Home: /
+- How It Works: /how-it-works/
+- Pricing: /pricing/
+- Revenue Calculator: /calculator/
+- Partner Program: /partners/
+- Use Cases Hub: /use-cases/
+- CRM Sync: /use-cases/crm/
+- Prospect Databases: /use-cases/databases/
+- Networking Groups: /use-cases/networking/
+- Industry: Transportation: /use-cases/databases/transportation/
+- Industry: Healthcare: /use-cases/databases/healthcare/
+- Industry: Financial Services: /use-cases/databases/financial-services/
+- Industry: Construction: /use-cases/databases/construction/
+- Industry: Legal Services: /use-cases/databases/legal/
+- Industry: Manufacturing: /use-cases/databases/manufacturing/
+- Industry: SaaS: /use-cases/databases/saas/
+- Industry: Insurance: /use-cases/databases/insurance/
+- Networking: BNI: /use-cases/networking/bni/
+- Networking: Vistage: /use-cases/networking/vistage/
+- Networking: EO: /use-cases/networking/eo/
+- Networking: LeTip: /use-cases/networking/letip/
+- Networking: Chamber of Commerce: /use-cases/networking/chamber/
+- Networking: Mastermind Groups: /use-cases/networking/mastermind/
+- Compare: vs LinkedIn Sales Navigator: /compare/vs-linkedin-sales-navigator/
+- Compare: vs Cold Email: /compare/vs-cold-email/
+- Compare: vs Referral Marketing: /compare/vs-referral-marketing/
+- Blog: /blog/
+- Blog: Warm Introduction Email Templates: /blog/warm-introduction-email-templates/
+- Blog: Why Cold Outreach Is Dying in B2B: /blog/cold-outreach-dead-b2b/
+- Blog: How to Get 5x More Referrals from BNI: /blog/how-to-get-more-referrals-bni/
+- Blog: ROI of Warm Introductions vs Cold Calls: /blog/roi-warm-introductions-vs-cold-calls/

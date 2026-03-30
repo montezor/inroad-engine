@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Cases — Inroad Engine by Outspire</title>
+<meta name="description" content="See how teams use the Inroad Engine: sync your CRM, upload prospect databases, or turbocharge your networking group relationships into warm intros.">
+<link rel="icon" href="https://outspire-site.pages.dev/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://network-revenue-system.pages.dev/use-cases/">
+<style>
+:root{--bg:#fafafa;--bg-dark:#0a0e1a;--blue:#3b82f6;--blue-dark:#2563eb;--blue-light:#eff6ff;--blue-glow:rgba(59,130,246,0.15);--purple:#8b5cf6;--green:#16a34a;--orange:#f97316;--navy:#0f172a;--text:#0f172a;--text-secondary:#475569;--text-muted:#94a3b8;--border:#e2e8f0;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--max-w:1200px;--radius:16px;--radius-sm:10px;--radius-xs:8px;--transition:.3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:color var(--transition)}
+img{max-width:100%;display:block}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1rem;color:#fff}
+.nav-logo img{height:28px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:#94a3b8;font-size:13px;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:var(--blue);color:#fff!important;padding:9px 20px;border-radius:var(--radius-xs);font-weight:600;font-size:13px}
+.nav-cta:hover{background:var(--blue-dark)}
+.hamburger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#fff;padding:8px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 24px;z-index:999}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 0;font-weight:500;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px}
+.container{max-width:var(--max-w);margin:0 auto;position:relative}
+.btn{padding:14px 32px;border-radius:var(--radius-xs);font-weight:600;font-size:15px;transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--blue-glow);color:#fff}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+section{padding:96px 24px}
+.hero{padding:140px 24px 80px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--blue-light) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);border:1px solid rgba(59,130,246,0.2);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--blue);margin-bottom:20px}
+.hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-0.04em;margin-bottom:20px}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.15rem;color:var(--text-secondary);max-width:600px;margin:0 auto 0;line-height:1.7}
+
+/* USE CASE CARDS */
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
+.uc-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:0;overflow:hidden;transition:all var(--transition);display:flex;flex-direction:column}
+.uc-card:hover{border-color:var(--blue);box-shadow:0 12px 36px var(--blue-glow);transform:translateY(-4px)}
+.uc-header{padding:32px 28px 0}
+.uc-icon{font-size:2rem;margin-bottom:12px}
+.uc-card h2{font-size:1.2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.01em}
+.uc-card .uc-desc{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
+.uc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.uc-tag{font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:100px;background:var(--blue-light);color:var(--blue)}
+.uc-bottom{margin-top:auto;padding:16px 28px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.uc-link{font-size:0.85rem;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:4px;transition:gap var(--transition)}
+.uc-card:hover .uc-link{gap:8px}
+
+/* ALSO FOR SECTION */
+.also-section{text-align:center}
+.also-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.also-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px 20px;text-align:center;transition:all var(--transition)}
+.also-card:hover{border-color:var(--blue);box-shadow:0 4px 16px var(--blue-glow)}
+.also-icon{font-size:1.5rem;margin-bottom:8px}
+.also-card h4{font-size:0.88rem;font-weight:700;margin-bottom:4px}
+.also-card p{font-size:0.78rem;color:var(--text-secondary);line-height:1.5}
+
+/* CTA */
+.cta-section{text-align:center;background:#fff;border-top:1px solid var(--border)}
+
+/* FOOTER */
+footer{background:var(--navy);color:#94a3b8;padding:48px 24px 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:36px}
+.footer-brand p{font-size:0.82rem;line-height:1.7;max-width:260px;margin-top:12px}
+.footer-col h4{color:#fff;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:700}
+.footer-col a{display:block;padding:3px 0;font-size:0.82rem;color:#94a3b8;transition:color var(--transition)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:0.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:1024px){.also-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .uc-grid{grid-template-columns:1fr}
+  .also-grid{grid-template-columns:1fr}
+  section{padding:64px 24px}
+  .footer-top{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire"> Inroad Engine</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/use-cases" class="active">Use Cases</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="nav-cta" target="_blank">Book a Demo</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="/">Home</a>
+  <a href="/how-it-works">How It Works</a>
+  <a href="/use-cases">Use Cases</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/calculator">Calculator</a>
+  <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" target="_blank">Book a Demo →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🎯 Use Cases</div>
+    <h1>Three Ways to Turn <span class="highlight">Relationships Into Revenue</span></h1>
+    <p class="hero-sub">Whether you're working a CRM, a prospect database, or a networking group, the system finds warm introduction paths hiding in your existing connections.</p>
+  </div>
+</section>
+
+<!-- USE CASE CARDS -->
+<section style="padding-top:48px">
+  <div class="container">
+    <div class="uc-grid fade-in">
+
+      <!-- CRM -->
+      <a href="/use-cases/crm" class="uc-card">
+        <div class="uc-header">
+          <div class="uc-icon">🔗</div>
+          <h2>Sync Your CRM</h2>
+          <p class="uc-desc">You've got hundreds of leads sitting in your CRM. You've been cold-calling them. But what if 25% of those leads have a warm path through your existing network?</p>
+          <p class="uc-desc">Sync HubSpot, Salesforce, Pipedrive, or any CRM. We cross-reference every lead against your team's connections and surface the warm paths instantly.</p>
+          <div class="uc-tags">
+            <span class="uc-tag">HubSpot</span>
+            <span class="uc-tag">Salesforce</span>
+            <span class="uc-tag">Pipedrive</span>
+            <span class="uc-tag">GoHighLevel</span>
+          </div>
+        </div>
+        <div class="uc-bottom">
+          <span class="uc-link">Learn more →</span>
+          <span style="font-size:0.75rem;color:var(--text-muted)">Revive stalled leads</span>
+        </div>
+      </a>
+
+      <!-- DATABASES -->
+      <a href="/use-cases/databases" class="uc-card">
+        <div class="uc-header">
+          <div class="uc-icon">📋</div>
+          <h2>Upload a Prospect Database</h2>
+          <p class="uc-desc">Already paying for Seamless, ZoomInfo, Apollo, or an industry-specific database? Upload your target list and we'll show you who on your team already has a warm connection.</p>
+          <p class="uc-desc">Stop cold-working a list that could be warm. Every industry has niche databases. We work with all of them.</p>
+          <div class="uc-tags">
+            <span class="uc-tag">Seamless.ai</span>
+            <span class="uc-tag">ZoomInfo</span>
+            <span class="uc-tag">Apollo</span>
+            <span class="uc-tag">RigDig</span>
+            <span class="uc-tag">CSV</span>
+          </div>
+        </div>
+        <div class="uc-bottom">
+          <span class="uc-link">Learn more →</span>
+          <span style="font-size:0.75rem;color:var(--text-muted)">Dream client matching</span>
+        </div>
+      </a>
+
+      <!-- NETWORKING -->
+      <a href="/use-cases/networking" class="uc-card">
+        <div class="uc-header">
+          <div class="uc-icon">🤝</div>
+          <h2>Turbocharge Networking Groups</h2>
+          <p class="uc-desc">You spend time, energy, and money going to BNI, Vistage, EO, LeTip, and other networking groups. These people are supposed to give you referrals. But it's not top of mind for them.</p>
+          <p class="uc-desc">We map every member's network so you can proactively ask for the right introductions instead of hoping they remember you.</p>
+          <div class="uc-tags">
+            <span class="uc-tag">BNI</span>
+            <span class="uc-tag">Vistage</span>
+            <span class="uc-tag">EO</span>
+            <span class="uc-tag">LeTip</span>
+            <span class="uc-tag">Mastermind Groups</span>
+          </div>
+        </div>
+        <div class="uc-bottom">
+          <span class="uc-link">Learn more →</span>
+          <span style="font-size:0.75rem;color:var(--text-muted)">Monetize your network</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ALSO GREAT FOR -->
+<section class="also-section">
+  <div class="container">
+    <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:4px">Also Built For</h2>
+    <p style="font-size:0.95rem;color:var(--text-secondary)">Any business that grows through relationships and referrals.</p>
+    <div class="also-grid fade-in">
+      <div class="also-card">
+        <div class="also-icon">🏢</div>
+        <h4>Business Owners</h4>
+        <p>You've built a network over years. Turn it into a predictable pipeline instead of leaving referrals to chance.</p>
+      </div>
+      <div class="also-card">
+        <div class="also-icon">📈</div>
+        <h4>Sales Teams</h4>
+        <p>Give reps warm paths into accounts. Higher close rates, shorter cycles, happier teams.</p>
+      </div>
+      <div class="also-card">
+        <div class="also-icon">📣</div>
+        <h4>Consultants &amp; Advisors</h4>
+        <p>Your business runs on trust. Systematize what you're doing informally so nothing falls through cracks.</p>
+      </div>
+      <div class="also-card">
+        <div class="also-icon">🏦</div>
+        <h4>Financial Services</h4>
+        <p>CPAs, wealth advisors, insurance pros. Your Centers of Influence are your growth engine. We map and activate them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-in">
+    <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:12px">Which Use Case Fits You?</h2>
+    <p style="font-size:1.05rem;color:var(--text-secondary);max-width:480px;margin:0 auto 32px">Book a 15-minute demo and we'll show you exactly how the system works with your real network.</p>
+    <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="btn btn-blue" target="_blank" style="font-size:17px;padding:16px 36px">Book Your Demo →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire" style="height:28px;filter:brightness(0) invert(1);opacity:0.6">
+        <p>Inroad Engine by Outspire. AI-powered referral intelligence for B2B teams.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="/">Overview</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/use-cases">Use Cases</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Use Cases</h4>
+        <a href="/use-cases/crm">CRM Sync</a>
+        <a href="/use-cases/databases">Prospect Databases</a>
+        <a href="/use-cases/networking">Networking Groups</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo">Book a Demo</a>
+        <a href="mailto:monte@roycebrookmedia.com">Email Us</a>
+        <a href="tel:908-287-5015">(908) 287-5015</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Outspire, a Royce Brook Media Company. All rights reserved.</span>
+      <span>52 West Main Street, Somerville, NJ</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+</script>
+
+</body>
+</html>

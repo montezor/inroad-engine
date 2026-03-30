@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pricing — Inroad Engine by Outspire</title>
+<meta name="description" content="Simple, transparent pricing for AI-powered referral intelligence. Find warm introductions hiding in your existing network. No long-term contracts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafafa;--bg-dark:#0a0e1a;--blue:#3b82f6;--blue-dark:#2563eb;--blue-light:#eff6ff;--blue-glow:rgba(59,130,246,0.15);--purple:#8b5cf6;--green:#16a34a;--orange:#f97316;--navy:#0f172a;--text:#0f172a;--text-secondary:#475569;--text-muted:#94a3b8;--border:#e2e8f0;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--max-w:1200px;--radius:16px;--radius-sm:10px;--radius-xs:8px;--transition:.3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap}
+.nav-logo img{height:32px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);font-size:.875rem;font-weight:500;padding:6px 12px;border-radius:var(--radius-xs);transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.08)}
+.nav-cta{background:var(--blue)!important;color:#fff!important;padding:8px 18px!important;border-radius:var(--radius-xs)!important;font-weight:600!important;transition:var(--transition)}
+.nav-cta:hover{background:var(--blue-dark)!important;transform:translateY(-1px)}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer}
+.mobile-toggle svg{width:24px;height:24px}
+
+/* HERO */
+.pricing-hero{text-align:center;padding:80px 24px 48px;max-width:720px;margin:0 auto}
+.pricing-hero .badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);color:var(--blue);font-size:.8rem;font-weight:600;padding:6px 16px;border-radius:999px;margin-bottom:20px;letter-spacing:.02em}
+.pricing-hero h1{font-size:2.75rem;font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.02em}
+.pricing-hero p{font-size:1.15rem;color:var(--text-secondary);max-width:560px;margin:0 auto 24px}
+.pricing-hero .guarantee{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--green);font-weight:600}
+.pricing-hero .guarantee svg{width:20px;height:20px;flex-shrink:0}
+
+/* TOGGLE (annual/monthly placeholder) */
+.billing-note{text-align:center;padding:0 24px 48px;font-size:.9rem;color:var(--text-muted);font-weight:500}
+
+/* PRICING CARDS */
+.pricing-grid{max-width:var(--max-w);margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.pricing-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;position:relative;transition:var(--transition)}
+.pricing-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
+.pricing-card.popular{border:2px solid var(--blue);box-shadow:0 8px 40px var(--blue-glow)}
+.pricing-card.popular:hover{box-shadow:0 12px 48px rgba(59,130,246,.2);transform:translateY(-4px)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.75rem;font-weight:700;padding:5px 20px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.pricing-card .tier-name{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:12px}
+.pricing-card.popular .tier-name{color:var(--blue)}
+.pricing-card .price{font-size:3rem;font-weight:800;line-height:1;margin-bottom:4px;letter-spacing:-.03em}
+.pricing-card .price span{font-size:1rem;font-weight:500;color:var(--text-muted)}
+.pricing-card .price-note{font-size:.85rem;color:var(--text-muted);margin-bottom:20px}
+.pricing-card .best-for{font-size:.85rem;color:var(--text-secondary);padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px;font-style:italic}
+.pricing-card .best-for strong{color:var(--text);font-style:normal}
+.pricing-card ul{list-style:none;margin-bottom:28px}
+.pricing-card ul li{font-size:.9rem;color:var(--text-secondary);padding:7px 0;display:flex;align-items:flex-start;gap:10px}
+.pricing-card ul li svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.pricing-card ul li svg.check{color:var(--green)}
+.pricing-card ul li svg.blue-check{color:var(--blue)}
+.card-cta{display:block;text-align:center;padding:14px 24px;border-radius:var(--radius-sm);font-weight:600;font-size:.95rem;transition:var(--transition);cursor:pointer}
+.card-cta.primary{background:var(--blue);color:#fff}
+.card-cta.primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(59,130,246,.3)}
+.card-cta.secondary{background:var(--blue-light);color:var(--blue)}
+.card-cta.secondary:hover{background:#dbeafe}
+.card-cta.outline{border:2px solid var(--border);color:var(--text);background:transparent}
+.card-cta.outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* COMPARISON TABLE */
+.comparison{max-width:var(--max-w);margin:0 auto;padding:0 24px 80px}
+.comparison h2{text-align:center;font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+.comparison .subtitle{text-align:center;color:var(--text-secondary);font-size:1rem;margin-bottom:40px}
+.comparison-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;background:#fff}
+.comparison-table thead th{background:var(--navy);color:#fff;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:16px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.comparison-table thead th:first-child{text-align:left;width:35%}
+.comparison-table thead th.pop{background:var(--blue-dark)}
+.comparison-table tbody td{padding:14px 20px;text-align:center;font-size:.9rem;color:var(--text-secondary);border-bottom:1px solid var(--border)}
+.comparison-table tbody td:first-child{text-align:left;font-weight:500;color:var(--text)}
+.comparison-table tbody td.pop{background:var(--blue-light)}
+.comparison-table tbody tr:last-child td{border-bottom:none}
+.comparison-table .section-label td{background:#f8fafc;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);padding:10px 20px}
+.comparison-table .section-label td.pop{background:#e8f1fe}
+.table-check{color:var(--green);font-weight:700}
+.table-x{color:var(--text-muted)}
+
+/* TRUST STRIP */
+.trust-strip{background:var(--blue-light);padding:48px 24px;text-align:center}
+.trust-strip .inner{max-width:800px;margin:0 auto}
+.trust-strip h3{font-size:1.3rem;font-weight:700;margin-bottom:12px}
+.trust-strip p{color:var(--text-secondary);font-size:.95rem;margin-bottom:24px;line-height:1.7}
+.trust-items{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--text)}
+.trust-item svg{width:22px;height:22px;color:var(--green)}
+
+/* FAQ */
+.faq-section{max-width:800px;margin:0 auto;padding:80px 24px}
+.faq-section h2{text-align:center;font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+.faq-section .subtitle{text-align:center;color:var(--text-secondary);margin-bottom:40px;font-size:1rem}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;background:#fff}
+.faq-item summary{padding:18px 24px;font-weight:600;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;transition:var(--transition)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:1.3rem;color:var(--text-muted);font-weight:400;transition:var(--transition)}
+.faq-item[open] summary::after{content:'−'}
+.faq-item[open] summary{background:#f8fafc}
+.faq-item .answer{padding:0 24px 20px;color:var(--text-secondary);font-size:.9rem;line-height:1.7}
+
+/* BOTTOM CTA */
+.bottom-cta{background:var(--navy);padding:64px 24px;text-align:center}
+.bottom-cta h2{color:#fff;font-size:2rem;font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+.bottom-cta p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+.bottom-cta .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:16px 36px;border-radius:var(--radius-sm);font-weight:700;font-size:1.05rem;transition:var(--transition)}
+.bottom-cta .cta-btn:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,130,246,.35)}
+.bottom-cta .sub{color:rgba(255,255,255,.4);font-size:.8rem;margin-top:16px}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:48px 24px 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.footer-brand{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.7}
+.footer-brand .logo{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.footer-brand .logo img{height:28px}
+.footer-col h4{color:#fff;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,.5);font-size:.85rem;padding:4px 0;transition:var(--transition)}
+.footer-col a:hover{color:var(--blue)}
+.footer-bottom{max-width:var(--max-w);margin:0 auto;padding-top:24px;margin-top:32px;border-top:1px solid rgba(255,255,255,.06);text-align:center;color:rgba(255,255,255,.3);font-size:.8rem}
+
+/* MOBILE */
+@media(max-width:900px){
+  .pricing-grid{grid-template-columns:1fr;max-width:440px}
+  .pricing-card.popular{order:-1}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .comparison-table{font-size:.82rem}
+  .comparison-table thead th,.comparison-table tbody td{padding:10px 12px}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--navy);flex-direction:column;padding:16px 24px;gap:4px;border-top:1px solid rgba(255,255,255,.06)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+  .pricing-hero h1{font-size:2rem}
+  .pricing-hero{padding:56px 24px 32px}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire"> Inroad Engine</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/use-cases">Use Cases</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+      <li><a href="/pricing" class="active">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="nav-cta" target="_blank">Book a Demo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pricing-hero">
+  <div class="badge">💰 Simple, Transparent Pricing</div>
+  <h1>Stop leaving referrals on the table.</h1>
+  <p>Pick the plan that fits your network. Every plan includes our core AI engine that surfaces warm introduction opportunities you're currently missing.</p>
+  <div class="guarantee">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    30-day money-back guarantee. No long-term contracts. Cancel anytime.
+  </div>
+</section>
+
+<div class="billing-note">All plans billed monthly. Volume discounts available for annual commitments.</div>
+
+<!-- PRICING CARDS -->
+<div class="pricing-grid">
+
+  <!-- STARTER -->
+  <div class="pricing-card">
+    <div class="tier-name">Starter</div>
+    <div class="price">$297<span>/mo</span></div>
+    <div class="price-note">Billed monthly</div>
+    <div class="best-for"><strong>Best for:</strong> Solo consultants, advisors, small business owners</div>
+    <ul>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 10 Centers of Influence mapped</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>1 user</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Weekly intelligence reports</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Private dashboard</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Pre-written intro request emails</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Email support</li>
+    </ul>
+    <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="card-cta secondary" target="_blank">Book a Demo →</a>
+  </div>
+
+  <!-- GROWTH (POPULAR) -->
+  <div class="pricing-card popular">
+    <div class="popular-badge">Most Popular</div>
+    <div class="tier-name">Growth</div>
+    <div class="price">$497<span>/mo</span></div>
+    <div class="price-note">Billed monthly</div>
+    <div class="best-for"><strong>Best for:</strong> Sales teams, growing businesses</div>
+    <ul>
+      <li><svg class="blue-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 50 Centers of Influence mapped</li>
+      <li><svg class="blue-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 5 users (team access)</li>
+      <li><svg class="blue-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Daily intelligence reports</li>
+      <li><svg class="blue-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>CRM sync (HubSpot, Salesforce, Pipedrive)</li>
+      <li><svg class="blue-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dream client list upload</li>
+      <li><svg class="blue-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Priority support</li>
+    </ul>
+    <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="card-cta primary" target="_blank">Book a Demo →</a>
+  </div>
+
+  <!-- ENTERPRISE -->
+  <div class="pricing-card">
+    <div class="tier-name">Enterprise</div>
+    <div class="price" style="font-size:2.2rem;padding-top:8px">Custom</div>
+    <div class="price-note">Tailored to your organization</div>
+    <div class="best-for"><strong>Best for:</strong> Large organizations, networking group founders</div>
+    <ul>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Unlimited Centers of Influence</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Unlimited users</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>API access</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Custom integrations</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dedicated account manager</li>
+      <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>White-label option</li>
+    </ul>
+    <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="card-cta outline" target="_blank">Contact Sales →</a>
+  </div>
+
+</div>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <h2>Feature Comparison</h2>
+  <p class="subtitle">See exactly what's included in each plan.</p>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Starter</th>
+        <th class="pop">Growth</th>
+        <th>Enterprise</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-label"><td colspan="1">Network Mapping</td><td></td><td class="pop"></td><td></td></tr>
+      <tr><td>Centers of Influence</td><td>Up to 10</td><td class="pop">Up to 50</td><td>Unlimited</td></tr>
+      <tr><td>Users</td><td>1</td><td class="pop">Up to 5</td><td>Unlimited</td></tr>
+      <tr><td>Dream client list upload</td><td class="table-x">—</td><td class="pop table-check">✓</td><td class="table-check">✓</td></tr>
+
+      <tr class="section-label"><td colspan="1">Intelligence</td><td></td><td class="pop"></td><td></td></tr>
+      <tr><td>Intelligence reports</td><td>Weekly</td><td class="pop">Daily</td><td>Real-time</td></tr>
+      <tr><td>Private dashboard</td><td class="table-check">✓</td><td class="pop table-check">✓</td><td class="table-check">✓</td></tr>
+      <tr><td>Pre-written intro request emails</td><td class="table-check">✓</td><td class="pop table-check">✓</td><td class="table-check">✓</td></tr>
+      <tr><td>AI opportunity scoring</td><td>Basic</td><td class="pop">Advanced</td><td>Custom models</td></tr>
+
+      <tr class="section-label"><td colspan="1">Integrations</td><td></td><td class="pop"></td><td></td></tr>
+      <tr><td>CRM sync (HubSpot, Salesforce, Pipedrive)</td><td class="table-x">—</td><td class="pop table-check">✓</td><td class="table-check">✓</td></tr>
+      <tr><td>API access</td><td class="table-x">—</td><td class="table-x pop">—</td><td class="table-check">✓</td></tr>
+      <tr><td>Custom integrations</td><td class="table-x">—</td><td class="table-x pop">—</td><td class="table-check">✓</td></tr>
+      <tr><td>White-label</td><td class="table-x">—</td><td class="table-x pop">—</td><td class="table-check">✓</td></tr>
+
+      <tr class="section-label"><td colspan="1">Support</td><td></td><td class="pop"></td><td></td></tr>
+      <tr><td>Email support</td><td class="table-check">✓</td><td class="pop table-check">✓</td><td class="table-check">✓</td></tr>
+      <tr><td>Priority support</td><td class="table-x">—</td><td class="pop table-check">✓</td><td class="table-check">✓</td></tr>
+      <tr><td>Dedicated account manager</td><td class="table-x">—</td><td class="table-x pop">—</td><td class="table-check">✓</td></tr>
+      <tr><td>Custom onboarding</td><td class="table-x">—</td><td class="table-x pop">—</td><td class="table-check">✓</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="inner">
+    <h3>Your investment is protected.</h3>
+    <p>We're confident the Inroad Engine will surface opportunities you never knew existed. If you don't see value in the first 30 days, we'll refund every penny. No questions asked.</p>
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        30-Day Money-Back Guarantee
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        No Long-Term Contracts
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+        Cancel Anytime
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2>Pricing FAQ</h2>
+  <p class="subtitle">Common questions about plans, billing, and getting started.</p>
+
+  <details class="faq-item">
+    <summary>How long does onboarding take?</summary>
+    <div class="answer">Most clients are fully onboarded within 48 hours. We'll map your initial Centers of Influence, configure your dashboard, and deliver your first intelligence report within the first week. Growth and Enterprise plans include a guided onboarding call.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Are there any long-term contracts?</summary>
+    <div class="answer">No. All plans are month-to-month. You can cancel anytime from your dashboard with no penalties, no fees, and no hoops to jump through. We earn your business every month.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>What's your refund policy?</summary>
+    <div class="answer">We offer a full 30-day money-back guarantee on all plans. If the Inroad Engine doesn't surface valuable introduction opportunities in your first month, we'll refund 100% of your payment. No questions asked.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Can I upgrade or downgrade my plan later?</summary>
+    <div class="answer">Absolutely. You can upgrade or downgrade at any time. When you upgrade, you'll get immediate access to additional features. Downgrades take effect at the start of your next billing cycle.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>What CRMs do you integrate with?</summary>
+    <div class="answer">The Growth plan includes native integrations with HubSpot, Salesforce, and Pipedrive. Enterprise plans support custom CRM integrations. We're adding new integrations regularly based on client demand.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>What exactly is a "Center of Influence"?</summary>
+    <div class="answer">A Center of Influence (COI) is a person in your professional network who has connections to your ideal clients. Our AI maps these individuals, tracks their activity and relationships, and alerts you when warm introduction opportunities arise. Think of it as having a 24/7 research assistant watching your network for referral signals.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Do you offer annual billing?</summary>
+    <div class="answer">Yes. Contact our sales team during your demo to discuss annual billing options. Annual plans include a meaningful discount and priority feature access.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Is my data secure?</summary>
+    <div class="answer">Your data is encrypted at rest and in transit. We follow SOC 2 security practices and never share your network data with third parties. Your competitive intelligence stays yours.</div>
+  </details>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2>Ready to unlock your network?</h2>
+  <p>See exactly how many warm introductions are hiding in your existing relationships. Book a 15-minute demo.</p>
+  <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" class="cta-btn" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Book a Demo
+  </a>
+  <div class="sub">Free. No credit card required. 15 minutes.</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo"><img src="https://static.wixstatic.com/media/048470_cc2578382e374b88824e6e9e6f9c2de9~mv2.png" alt="Outspire"> Inroad Engine</div>
+      AI-powered referral intelligence that finds warm introduction opportunities in your existing network.
+      <br><br>
+      52 West Main Street, Somerville, NJ<br>
+      <a href="mailto:monte@roycebrookmedia.com" style="color:var(--blue)">monte@roycebrookmedia.com</a><br>
+      <a href="tel:9082875015" style="color:var(--blue)">(908) 287-5015</a>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="/">Overview</a>
+      <a href="/how-it-works">How It Works</a>
+      <a href="/use-cases">Use Cases</a>
+      <a href="/calculator">Calculator</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <a href="/use-cases/crm">CRM Sync</a>
+      <a href="/use-cases/databases">Databases</a>
+      <a href="/use-cases/networking">Networking</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Started</h4>
+      <a href="https://calendly.com/blockchain-boardroom/ai-marketing-demo" target="_blank">Book a Demo</a>
+      <a href="mailto:monte@roycebrookmedia.com">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Outspire, a Royce Brook Media Company. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
